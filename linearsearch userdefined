@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+// Template Linear Search
+template <typename T>
+int linearSearch(T arr[], int n, T key) {
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == key)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    int choice;
+    cout << "Select data type:\n1. int\n2. float\nEnter choice: ";
+    cin >> choice;
+
+    const int MAX = 50;
+
+    if(choice == 1) {
+        int arr[MAX], key;
+        int n = 0;
+
+        cout << "Enter int elements (-1 to stop):\n";
+        while(n < MAX) {
+            cin >> arr[n];
+            if(arr[n] == -1)
+                break;
+            n++;
+        }
+
+        cout << "Enter element to search: ";
+        cin >> key;
+
+        int pos = linearSearch(arr, n, key);
+        if(pos != -1)
+            cout << "Element found at position: " << pos + 1;
+        else
+            cout << "Element not found";
+    }
+    else if(choice == 2) {
+        float arr[MAX], key;
+        int n = 0;
+
+        cout << "Enter float elements (-1 to stop):\n";
+        while(n < MAX) {
+            cin >> arr[n];
+            if(arr[n] == -1)
+                break;
+            n++;
+        }
+
+        cout << "Enter element to search: ";
+        cin >> key;
+
+        int pos = linearSearch(arr, n, key);
+        if(pos != -1)
+            cout << "Element found at position: " << pos + 1;
+        else
+            cout << "Element not found";
+    }
+    else {
+        cout << "Invalid choice!";
+    }
+
+    return 0;
+}
